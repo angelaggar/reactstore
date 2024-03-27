@@ -1,18 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import ProductCard from '../components/ProductCard'
 import ProductOnShow from '../components/ProductOnShow'
 import clsx from 'clsx'
 
 export default function Products() {
   const [products, setProducts] = useState([])
-  const [pToRender, setPToRender]= useState([])
+  const [pToRender, setPToRender] = useState([])
   const [product, setProduct] = useState(null)
-  const [categoryList, setCategoryList] = useState([])
+  const [categorySet, setCategorySet] = useState(new Set([]))
 
-  function categoryClickHandler (cat){
-      const filtered = products.filter((item)=>item.category == cat)
-      setProduct(null)
-      return setPToRender(filtered)
+  function categoryClickHandler(cat) {
+    if (cat === 'All') {
+      setPToRender(products)
+    } else {
+      const filtered = products.filter((item) => item.category === cat)
+      setPToRender(filtered)
+    }
+    setProduct(null)
   }
 
   useEffect(() => {
@@ -20,42 +24,34 @@ export default function Products() {
       .then((res) => res.json())
       .then((json) => {
         setProducts(json.products)
-        setPToRender(products)
+        setPToRender(json.products)
+        const categories = new Set(json.products.map((p) => p.category))
+        setCategorySet(new Set(['All', ...categories]))
       })
       .catch((error) => {
         console.log('Error fetching products list', error)
       })
   }, [])
 
-  useEffect(() => {
-    const categories = []
-    products.forEach((p) => {
-      if (!categories.includes(p.category)) {
-        categories.push(p.category)
-      }
-    })
-    setCategoryList(categories)
-  }, [products])
-
   return (
-    <main className='bg-black'>
+    <main className='bg-black min-w-screen'>
       <nav className='h-20 fixed'></nav>
       <div className='flex flex-col md:flex-row pt-20 gap-1 px-6 md:px-0'>
         <div className='md:w-1/5 md:min-h-screen md:px-0 flex md:flex-col bg-neutral-200/10 text-white'>
           <p className='bg-indigo-700 md:w-full h-full md:h-9 p-2 text-center items-center md:items-start'>
             CATEGORIES
           </p>
-          {categoryList.map((cat, index) => (
+          {[...categorySet].map((cat, index) => (
             <p
               key={`cat-${index}`}
               className='w-full p-2 text-center hover:bg-neutral-200/10'
-              onClick={()=>categoryClickHandler(cat)}
+              onClick={() => categoryClickHandler(cat)}
             >
               {cat}
             </p>
           ))}
         </div>
-        <div className='flex flex-col w-full md:px-3 gap-3 justify-center'>
+        <div className='flex flex-col w-full md:w-4/5 md:px-3 gap-3 '>
           {product && (
             <div
               className={clsx(
@@ -94,6 +90,7 @@ export default function Products() {
                 <button
                   onClick={() => {
                     setProduct(item)
+                    window.scrollTo({ top: 0, behavior: 'smooth' })
                   }}
                   className='w-16 border-2 border-indigo-700 box-content text-xs rounded-2xl text-center text-white p-1 bg-indigo-700 hover:bg-transparent mt-auto self-end'
                 >

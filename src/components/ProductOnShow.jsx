@@ -17,8 +17,8 @@ export default function ProductOnShow(props) {
   }
 
   return (
-    <div className='text-white text-lg flex flex-col md:flex-row gap-3'>
-      <nav className='flex flex-col-reverse md:flex-row gap-4 w-3/5'>
+    <div className='text-white text-lg grid md:grid-cols-2 gap-3'>
+      <nav className='flex flex-col-reverse md:flex-row gap-4 w-[480px]'>
         <div className='flex md:flex-col gap-2 items-center md:items-start'>
           {images.map((item, index) => (
             <img
@@ -32,7 +32,7 @@ export default function ProductOnShow(props) {
         </div>
         <img src={picture} alt='Product picture' className='w-96 h-96' />
       </nav>
-      <div className='flex flex-col gap-3 leading-5'>
+      <div className='flex flex-col gap-3 leading-5 w-auto md:w-full md:pl-3'>
         <div className='flex gap-5'>
           <h1 className='text-3xl font-bold'>{props.title}</h1>
           <ShoppingCartIcon className='h-8 w-14 border-2 border-indigo-600 text-indigo-700 px-4 py-0 rounded-2xl hover:scale-125' />
