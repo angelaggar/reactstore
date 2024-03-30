@@ -30,16 +30,17 @@ const routes = createBrowserRouter([
         path: '/products',
         element: <Products />
       },
+      {
+        path: '/login',
+        element: <Login />
+      },
+      {
+        path: '/products/:id',
+        element: <ProductOnShow />
+      }
     ]
   },
-  {
-    path: '/login',
-    element: <Login />
-  },
-  {
-    path: '/products/:id',
-    element: <ProductOnShow />
-  },
+  
   {
     path: '/todos',
     element: <Todos />

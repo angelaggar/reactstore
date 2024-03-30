@@ -37,7 +37,7 @@ export default function Login() {
         className='border bg-gray-200 p-8 sm:w-full md:w-1/2 lg:w-1/4 h-96 grid grid-col gap-4'
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h1 className='text-indigo-600 font-extrabold text-3xl text-center p-4'>Welcome!</h1>
+        <h1 className='text-[rgb(8,126,164)] font-extrabold text-3xl text-center p-4'>Welcome!</h1>
         <input
           type='text'
           name='username'
@@ -76,7 +76,7 @@ export default function Login() {
 
         <button
           type='submit'
-          className='mt-3 w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+          className='mt-3 w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-xl font-medium text-white bg-[rgb(8,126,164)]'
         >
           Login
         </button>

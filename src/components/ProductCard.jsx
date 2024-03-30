@@ -22,7 +22,7 @@ export default function ProductCard(props) {
       })
   }, [props.id])
   return (
-    <article className='flex flex-col gap-3 text-white'>
+    <article className='flex flex-col gap-3 text-white '>
       <img
         src={picture}
         alt='Product image'
@@ -32,11 +32,11 @@ export default function ProductCard(props) {
       <div className='flex justify-between items-center'>
         <div className='flex justify-between gap-1'>
           <h4 className='text-xl'>MXN${product.price}.00</h4>
-          <p className='border-4 border-indigo-700 text-indigo-600 text-sm font-bold h-6 px-1'>
+          <p className='border-4 border-[rgb(8,126,164)] text-[rgb(8,126,164)]/90 text-sm font-bold h-6 px-1'>
             -{Math.floor(props.discount)}%
           </p>
         </div>
-        <ShoppingCartIcon className='h-7 w-12 border-2 border-indigo-600 text-indigo-700 px-3 py-1 rounded-2xl hover:scale-125' />
+        <ShoppingCartIcon className='h-7 w-12 border-2 border-[rgb(8,126,164)] text-[rgb(8,126,164)] px-3 py-1 rounded-2xl hover:scale-125' />
       </div>
 
       <p>Stock: {product.stock}</p>
@@ -48,7 +48,7 @@ export default function ProductCard(props) {
               key={index}
               src={pic}
               alt='n/a'
-              className='h-6 w-6 rounded-full hover:scale-125 border-2 border-indigo-700'
+              className='h-6 w-6 rounded-full hover:scale-125 border-2 border-[rgb(8,126,164)]'
             />
           )
         })}

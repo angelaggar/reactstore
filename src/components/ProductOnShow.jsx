@@ -25,7 +25,7 @@ export default function ProductOnShow(props) {
               key={`img-${index}`}
               src={item}
               alt='Miniature picture'
-              className='w-20 h-16 hover:border-2 hover:border-indigo-700 hover:scale-125'
+              className='w-20 h-16 hover:border-2 hover:border-[rgb(8,126,164)] hover:scale-125'
               onMouseOver={minMouseOverHandler}
             />
           ))}
@@ -35,14 +35,14 @@ export default function ProductOnShow(props) {
       <div className='flex flex-col gap-3 leading-5 w-auto md:w-full md:pl-3'>
         <div className='flex gap-5'>
           <h1 className='text-3xl font-bold'>{props.title}</h1>
-          <ShoppingCartIcon className='h-8 w-14 border-2 border-indigo-600 text-indigo-700 px-4 py-0 rounded-2xl hover:scale-125' />
+          <ShoppingCartIcon className='h-8 w-14 border-2 border-[rgb(8,126,164)] text-[rgb(8,126,164)] px-4 py-0 rounded-2xl hover:scale-125' />
         </div>
         <p>{props.brand}</p>
         <p>Rating: {props.rating}</p>
         <p>Stock: {props.stock} pcs.</p>
         <div className='flex items-center gap-3'>
           <p className='text-2xl font-semibold'>MXN ${props.price}.00</p>
-          <p className='border-4 border-indigo-700 text-indigo-600 text-sm font-bold h-6'>
+          <p className='border-4 border-[rgb(8,126,164)] text-[rgb(8,126,164)] text-sm font-bold h-6'>
             -{props.discount}%
           </p>
         </div>
