@@ -32,7 +32,7 @@ export default function Login() {
   }
 
   return (
-    <main className='bg-black min-h-screen flex justify-center p-6'>
+    <main className='bg-black h-screen flex justify-center pt-40'>
       <form
         className='border bg-gray-200 p-8 sm:w-full md:w-1/2 lg:w-1/4 h-96 grid grid-col gap-4'
         onSubmit={handleSubmit(onSubmit)}

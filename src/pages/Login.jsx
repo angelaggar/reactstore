@@ -39,9 +39,9 @@ export default function Login() {
   }
 
   return (
-    <main className='bg-black min-h-screen flex justify-center p-6'>
+    <main className='bg-black flex justify-center items-center h-screen'>
       <form
-        className='border bg-gray-200 p-6 min-w-md h-64'
+        className='border bg-gray-200 pt-20 min-w-md h-64'
         onSubmit={handleSubmit}
       >
         <h1 className=''>Login Form</h1>
